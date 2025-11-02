@@ -4486,21 +4486,24 @@ function library:init()
     end
     
     -- Watermark
-    do
-        self.watermark = {
-            objects = {};
-            text = {
-                {"Shu Hub", true},
-                {"V"..getgenv().Config.Version, true},
-                {getgenv().luaguardvars.DiscordName, true},
-                {'0 fps', true},
-                {'0ms', true}
-            };
-            lock = 'custom';
-            position = newUDim2(0,0,0,0);
-            refreshrate = 25;
-        }
+do
+    local version = tostring(getgenv().Config.Version or "Unknown")
+    local discord = tostring(getgenv().luaguardvars.DiscordName or "User")
 
+    self.watermark = {
+        objects = {};
+        text = {
+            {"Shu Hub", true},
+            {"V" .. version, true},
+            {discord, true},
+            {'0 fps', true},
+            {'0ms', true}
+        };
+        lock = 'custom';
+        position = newUDim2(0,0,0,0);
+        refreshrate = 25;
+    }
+end
         function self.watermark:Update()
             self.objects.background.Visible = library.flags.watermark_enabled
             if library.flags.watermark_enabled then
