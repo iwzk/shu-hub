@@ -4494,7 +4494,7 @@ function library:init()
                 {"V"..getgenv().Config.Version, true},
                 {getgenv().luaguardvars.DiscordName, true},
                 {'0 fps', true},
-                {'0ms', true},
+                {'0ms', true}
             };
             lock = 'custom';
             position = newUDim2(0,0,0,0);
