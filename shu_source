@@ -2605,7 +2605,7 @@ function library:init()
                             local c;
                             local inputNumber = '';
                             utility:Connection(slider.objects.holder.MouseButton1Down, function()
-                                if inputservice:IsKeyDown(Enum.KeyCode.RCTRL) then
+                                if inputservice:IsKeyDown(Enum.KeyCode.LCTRL) then
                                     if slider.focused then
                                         slider.focused = false;
                                         c:Disconnect();
@@ -4665,7 +4665,7 @@ function library:CreateSettingsTab(menu)
 
     refreshConfigs()
 
-    mainSection:AddBind({text = 'Aberto/Fechado', flag = 'togglebind', nomouse = true, noindicator = true, bind = Enum.KeyCode.LeftControl, callback = function()
+    mainSection:AddBind({text = 'Aberto/Fechado', flag = 'togglebind', nomouse = true, noindicator = true, bind = Enum.KeyCode.RCTRL, callback = function()
         library:SetOpen(not library.open)
     end});
 
