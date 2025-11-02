@@ -4665,7 +4665,7 @@ function library:CreateSettingsTab(menu)
 
     refreshConfigs()
 
-    mainSection:AddBind({text = 'Aberto / Fechado', flag = 'togglebind', nomouse = true, noindicator = true, bind = Enum.KeyCode.RightControl, callback = function()
+    mainSection:AddBind({text = 'Aberto / Fechado', flag = 'togglebind', nomouse = true, noindicator = true, bind = Enum.KeyCode.RCTRL, callback = function()
         library:SetOpen(not library.open)
     end});
 
