@@ -2605,7 +2605,7 @@ function library:init()
                             local c;
                             local inputNumber = '';
                             utility:Connection(slider.objects.holder.MouseButton1Down, function()
-                                if inputservice:IsKeyDown(Enum.KeyCode.LeftControl) then
+                                if inputservice:IsKeyDown(Enum.KeyCode.LCTRL) then
                                     if slider.focused then
                                         slider.focused = false;
                                         c:Disconnect();
