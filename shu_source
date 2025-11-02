@@ -1,7 +1,7 @@
 --[[
 Octohook ui lib informant version
-Developed by shu
-Edited by drugs
+Developed by liam#4567
+Edited by xz#1111
 ]]
 
 -- // Load
@@ -3846,7 +3846,7 @@ function library:init()
                             elseif #inp.KeyCode.Name == 1 or table.find(whitelistedBoxKeys, inp.KeyCode) or inp.KeyCode.Name == 'Space' or inp.KeyCode.Name == 'Minus' or inp.KeyCode.Name == 'Equals' or inp.KeyCode.Name == 'Backquote' then
                                 local wlIdx = table.find(whitelistedBoxKeys, inp.KeyCode)
                                 local keyString = inp.KeyCode.Name == 'Space' and ' ' or inp.KeyCode.Name == 'Minus' and '_' or inp.KeyCode.Name == 'Equals' and '+' or inp.KeyCode.Name == 'Backquote' and '~' or wlIdx ~= nil and tostring(wlIdx-1) or inp.KeyCode.Name
-                                if not (inputservice:IsKeyDown(Enum.KeyCode.LeftShift) and not inputservice:IsKeyDown(Enum.KeyCode.RightControl)) then
+                                if not (inputservice:IsKeyDown(Enum.KeyCode.LeftShift) and not inputservice:IsKeyDown(Enum.KeyCode.RightShift)) then
                                     keyString = keyString:lower();
                                     if inp.KeyCode.Name == 'Minus' then
                                         keyString = '-'
@@ -4621,11 +4621,11 @@ function library:CreateSettingsTab(menu)
     local mainSection = settingsTab:AddSection('Main', 1);
     local creditsSection = settingsTab:AddSection('Credits', 2);
     creditsSection:AddSeparator({text = 'Owners/Developers'});
-    creditsSection:AddText({text = "shu#0000"})
-    creditsSection:AddText({text = "drugs#0000"})
+    creditsSection:AddText({text = "xz#1111"})
+    creditsSection:AddText({text = "goof#1000"})
     creditsSection:AddSeparator({text = 'Helpers'});
-    creditsSection:AddText({text = ""})
-    creditsSection:AddText({text = ""})
+    creditsSection:AddText({text = "encode#9999"})
+    creditsSection:AddText({text = "Vault#5434"})
 
 
     configSection:AddBox({text = 'Config Name', flag = 'configinput'})
@@ -4665,11 +4665,11 @@ function library:CreateSettingsTab(menu)
 
     refreshConfigs()
 
-    mainSection:AddBind({text = 'Aberto / Fechado', flag = 'togglebind', nomouse = true, noindicator = true, bind = Enum.KeyCode.RightControl, callback = function()
+    mainSection:AddBind({text = 'Open / Close', flag = 'togglebind', nomouse = true, noindicator = true, bind = Enum.KeyCode.RightShift, callback = function()
         library:SetOpen(not library.open)
     end});
 
-    mainSection:AddToggle({text = 'Te impede de se mover com o script aberto.', flag = 'disablemenumovement', callback = function(bool)
+    mainSection:AddToggle({text = 'Disable Movement If Open', flag = 'disablemenumovement', callback = function(bool)
         if bool and library.open then
             actionservice:BindAction(
                 'FreezeMovement',
@@ -4742,7 +4742,7 @@ function library:CreateSettingsTab(menu)
     local themeSection = settingsTab:AddSection('Theme', 1);
     local setByPreset = false
 
-    themeSection:AddList({text = 'Temas', flag = 'preset_theme', values = themeStrings, callback = function(newTheme)
+    themeSection:AddList({text = 'Presets', flag = 'preset_theme', values = themeStrings, callback = function(newTheme)
         setByPreset = true
         for _,v in next, library.themes do
             if v.name == newTheme then
